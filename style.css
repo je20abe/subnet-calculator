@@ -1,29 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Import the Poppins font from Google Fonts. 
+   This allows us to use the Poppins font in our design. */
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+   /* Universal selector (*) applies styles to all elements in the document. */
+   * {
+       margin: 0; /* Remove default margin from all elements. */
+       padding: 0; /* Remove default padding from all elements. */
+       box-sizing: border-box; /* Include padding and border in the element's total width and height. */
+       font-family: "Poppins", sans-serif; /* Set the default font for all elements to Poppins. */
+   }
+   
+   /* Style the body element */
+   body {
+       display: flex; /* Use Flexbox for layout. */
+       justify-content: center; /* Center content horizontally. */
+       align-items: center; /* Center content vertically. */
+       min-height: 100vh; /* Make the body take up the full height of the viewport. */
+       background: seagreen; /* Set the background color of the body to seagreen. */
+   }
+   
+   /* Wrapper styles - the container for the form */
+   .wrapper {
+       width: 420px; /* Set a fixed width for the container. */
+        background: purple; /* Set the background color of the container to purple. */
+       color: #fff; /* Set the text color to white. */
+   }
+   
+   /* Style the heading (h1) inside the wrapper */
+   .wrapper h1 {
+       font-size: 36px; /* Set the font size of the heading. */
+       text-align: center; /* Center the text horizontally. */
+   }
+   
+   /* Input box container styles */
+   .wrapper .input-box {
+       width: 100%; /* Make the input box take up the full width of the container. */
+       height: 50px; /* Set a fixed height for the input box. */
+       margin: 30px 0; /* Add vertical spacing around the input boxes. */
+   }
+   
+   /* Style the input fields inside the input box */
+   .input-box input {
+       width: 100%; /* Make the input field take up the full width of the input box. */
+       height: 100%; /* Make the input field match the height of the input box. */
+       background: transparent; /* Make the background of the input field transparent. */
+       border: none; /* Remove the default border of the input field. */
+       outline: none; /* Remove the outline when the input is focused. */
+       border: 2px solid rgba(255, 255, 255, .2); /* Add a light semi-transparent white border. */
+       border-radius: 40px; /* Make the input field's corners rounded. */
+   }
+   
+   /* Change border color when the input is focused */
+.input-box input:focus {
+    border-color: #fff; /* Highlight border when focused */
+} 
+
+.input-box {
+    position: relative; /* Make the container a relative position reference */
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: seagreen;
-
-}
-
-.wrapper {
-    width: 420px;
-    background: purple;
-    color: #fff; 
-
-}
-
-.wrapper h1 {
-    font-size: 36px;
-    text-align: center;
+/* Icon styling inside input fields */
+.input-box i {
+    position: absolute; /* Position the icon relative to the input box */
+    right: 20px;
+    top: 50%;
+    transform: translate(-50%);
 }
