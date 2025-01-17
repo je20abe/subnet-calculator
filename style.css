@@ -16,20 +16,32 @@
        justify-content: center; /* Center content horizontally. */
        align-items: center; /* Center content vertically. */
        min-height: 100vh; /* Make the body take up the full height of the viewport. */
-       background: seagreen; /* Set the background color of the body to seagreen. */
-   }
+       background: url('images/img.jpg') no-repeat;
+       background-size: cover; /* Ensure the image covers the entire viewport */
+       background-position: center;
+    }
    
-   /* Wrapper styles - the container for the form */
-   .wrapper {
-       width: 420px; /* Set a fixed width for the container. */
-        background: purple; /* Set the background color of the container to purple. */
-       color: #fff; /* Set the text color to white. */
-   }
+ /* Wrapper styles - the container for the form */
+.wrapper {
+    width: 420px; /* Sets the fixed width for the container */
+    background: transparent; /* Ensures the container background is transparent, allowing the blur effect to show the background behind */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Adds a semi-transparent white border around the container */
+    backdrop-filter: blur(20px); /* Applies a blur effect to the area behind the container */
+    -webkit-backdrop-filter: blur(20px); /* Ensures compatibility with Safari and WebKit-based browsers */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adds a soft shadow around the container for a subtle depth effect */
+    color: #fff; /* Sets the text color to white for better contrast against the semi-transparent background */
+    border-radius: 10px; /* Rounds the corners of the container for a smoother, modern design */
+    padding: 30px 40px; /* Adds internal spacing within the container to create space between the content and the edges */
+}
+
+
    
    /* Style the heading (h1) inside the wrapper */
    .wrapper h1 {
        font-size: 36px; /* Set the font size of the heading. */
        text-align: center; /* Center the text horizontally. */
+      
+
    }
    
    /* Input box container styles */
@@ -96,6 +108,37 @@
 .remember-forgot a:hover {
     text-decoration: underline; /* Remove underline when hovered (optional) */
 }
+
+/* Button styling */
+.button {
+    width: 100%; /* Make the button take up the full width of its container */
+    height: 35px; /* Set a fixed height for consistent sizing */
+    background: #fff; /* Set the background color to white */
+    border: none; /* Remove the default border for a clean look */
+    outline: none; /* Remove the default outline when the button is focused */
+    border-radius: 40px; /* Add rounded corners for a pill-shaped button */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1); /* Add a subtle shadow for a floating effect */
+    cursor: pointer; /* Change the cursor to a pointer to indicate interactivity */
+    font-size: 15px; /* Set a readable font size for button text */
+    color: #333; /* Use a dark gray color for the button text for good contrast */
+    font-weight: 600; /* Make the text slightly bold for emphasis */
+}
+
+.wrapper  .register-link {
+    font-size: 15px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: #fff ; /* Ensure white color is applied */
+    text-decoration: none;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
 
 
 
