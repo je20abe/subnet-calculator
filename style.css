@@ -48,10 +48,13 @@
        outline: none; /* Remove the outline when the input is focused. */
        border: 2px solid rgba(255, 255, 255, .2); /* Add a light semi-transparent white border. */
        border-radius: 40px; /* Make the input field's corners rounded. */
+       font-size: 16px;
+       color: #fff;
+       padding: 20px 45px 20px 20px;
    }
    
    /* Change border color when the input is focused */
-.input-box input:focus {
+.input-box input::placeholder {
     border-color: #fff; /* Highlight border when focused */
 } 
 
@@ -66,3 +69,33 @@
     top: 50%;
     transform: translate(-50%);
 }
+
+.wrapper .remember-forgot {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left instead of spacing them apart */
+    align-items: center; /* Align items (checkbox and text) vertically */
+    gap: 10px; /* Add spacing between the "Remember me" and "Forgot password" */
+    /*font-size: 14.5px; /* Font size for better readability */
+    margin: -15px 0 15px; /* Adjust spacing around this section */
+    font-size: 14.5px; /* Font size for better readability */
+}
+
+.remember-forgot label input {
+    accent-color: #fff; /* Style the checkbox color */
+    margin-right: 2px; /* Reduce space between the checkbox and the text */
+}
+
+
+
+.remember-forgot a {
+    color: #fff; /* Set "Forgot password" link color */
+    text-decoration: none; /* Add underline for emphasis */
+    margin-left: auto; /* Push "Forgot password" to the right */
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline; /* Remove underline when hovered (optional) */
+}
+
+
+
