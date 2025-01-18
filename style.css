@@ -57,7 +57,7 @@
    .input-box input {
        width: 100%; /* Make the input field take up the full width of the input box. */
        height: 100%; /* Make the input field match the height of the input box. */
-       background: white; /* Make the background of the input field transparent. */
+       background: transparent; /* Make the background of the input field transparent. */
        border: none; /* Remove the default border of the input field. */
        outline: none; /* Remove the outline when the input is focused. */
        border: 2px solid rgba(255, 255, 255, .2); /* Add a light semi-transparent white border. */
