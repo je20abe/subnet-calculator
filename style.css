@@ -16,20 +16,20 @@
        justify-content: center; /* Center content horizontally. */
        align-items: center; /* Center content vertically. */
        min-height: 100vh; /* Make the body take up the full height of the viewport. */
-       background: url('images/img.jpg') no-repeat;
+       background: url(images/img.jpg) no-repeat;
        background-size: cover; /* Ensure the image covers the entire viewport */
        background-position: center;
     }
    
  /* Wrapper styles - the container for the form */
 .wrapper {
-    width: 420px; /* Sets the fixed width for the container */
+    width: 600px; /* Sets the fixed width for the container */
     background: transparent; /* Ensures the container background is transparent, allowing the blur effect to show the background behind */
     border: 2px solid rgba(255, 255, 255, 0.2); /* Adds a semi-transparent white border around the container */
     backdrop-filter: blur(20px); /* Applies a blur effect to the area behind the container */
     -webkit-backdrop-filter: blur(20px); /* Ensures compatibility with Safari and WebKit-based browsers */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adds a soft shadow around the container for a subtle depth effect */
-    color: #fff; /* Sets the text color to white for better contrast against the semi-transparent background */
+    color: white; /* Sets the text color to white for better contrast against the semi-transparent background */
     border-radius: 10px; /* Rounds the corners of the container for a smoother, modern design */
     padding: 30px 40px; /* Adds internal spacing within the container to create space between the content and the edges */
 }
@@ -40,6 +40,8 @@
    .wrapper h1 {
        font-size: 36px; /* Set the font size of the heading. */
        text-align: center; /* Center the text horizontally. */
+       font-weight: 900;
+       text-transform: uppercase;
       
 
    }
@@ -55,23 +57,28 @@
    .input-box input {
        width: 100%; /* Make the input field take up the full width of the input box. */
        height: 100%; /* Make the input field match the height of the input box. */
-       background: transparent; /* Make the background of the input field transparent. */
+       background: white; /* Make the background of the input field transparent. */
        border: none; /* Remove the default border of the input field. */
        outline: none; /* Remove the outline when the input is focused. */
        border: 2px solid rgba(255, 255, 255, .2); /* Add a light semi-transparent white border. */
        border-radius: 40px; /* Make the input field's corners rounded. */
        font-size: 16px;
-       color: #fff;
+       color: #181717;
        padding: 20px 45px 20px 20px;
    }
    
    /* Change border color when the input is focused */
 .input-box input::placeholder {
-    border-color: #fff; /* Highlight border when focused */
+    border-color: white; /* Highlight border when focused */
 } 
 
-.input-box {
+.input-box:hover {
     position: relative; /* Make the container a relative position reference */
+    border: 2px solid #007bff; /* Change border color on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow effect on hover */
+    transition: all 0.3s ease; /* Smooth transition for the hover effect */
+    border-radius: 40px; /* Make the input field's corners rounded. */
+
 }
 
 /* Icon styling inside input fields */
@@ -80,6 +87,7 @@
     right: 20px;
     top: 50%;
     transform: translate(-50%);
+    color: #181717;
 }
 
 .wrapper .remember-forgot {
@@ -123,6 +131,7 @@
     color: #333; /* Use a dark gray color for the button text for good contrast */
     font-weight: 600; /* Make the text slightly bold for emphasis */
 }
+
 
 .wrapper  .register-link {
     font-size: 15px;
