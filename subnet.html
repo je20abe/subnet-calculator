@@ -1,1 +1,16 @@
 subnet
+
+<script>
+    // On subnet.html
+window.addEventListener("load", function () {
+    const welcomeMessage = localStorage.getItem('welcomeMessage');
+    if (welcomeMessage) {
+        alert(welcomeMessage); // Show the welcome message
+        localStorage.removeItem('welcomeMessage'); // Clear the message to avoid repeated alerts
+    }
+});
+
+</script>
+
+
+

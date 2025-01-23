@@ -33,7 +33,7 @@ submit.addEventListener("click", function (event) {
         .then((userCredential) => {
             // Signed up 
             const user = userCredential.user;
-            alert(`Welcome, ${user.email}`)
+            localStorage.setItem('welcomeMessage', `Welcome, ${user.email}!`); // Store message
             window.location.href="subnet.html";
             // ...
         })
