@@ -148,6 +148,18 @@
     text-decoration: underline;
 }
 
+/*.wrapper.incorrect label{
+    border-color: #f06272; /* Change border color on error */
+   /* box-shadow: 0 0 15px rgba(240, 98, 114, 0.8); /* Highlight wrapper with error color */
+   /* background-color: red;
+}
+
+.wrapper.incorrect input{
+    border-color: red;
+}
+
+
+
 
 
 
