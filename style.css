@@ -60,7 +60,7 @@
        background: transparent; /* Make the background of the input field transparent. */
        border: none; /* Remove the default border of the input field. */
        outline: none; /* Remove the outline when the input is focused. */
-       border: 2px solid rgba(255, 255, 255, .2); /* Add a light semi-transparent white border. */
+       border: 2px solid rgba(232, 223, 223, 0.2); /* Add a light semi-transparent white border. */
        border-radius: 40px; /* Make the input field's corners rounded. */
        font-size: 16px;
        color: #181717;
