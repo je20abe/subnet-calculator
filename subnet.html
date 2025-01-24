@@ -194,6 +194,12 @@
 
         }
 
+        // Handle form submission
+        document.getElementById('subnetForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            calculateSubnet();
+        });
+
 
     
 
