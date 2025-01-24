@@ -160,6 +160,13 @@
             { "exponent": 24, "value": 16777216, "subnet_mask": "255.0.0.0", "CIDR": "/8" }
         ];
 
+        // Function to calculate subnet details
+        function calculateSubnet() {
+            const ip = document.getElementById('ipAddress').value;
+            const cidr = parseInt(document.getElementById('cidr').value);
+            const subnetInfo = subnetData.find(item => parseInt(item.CIDR.slice(1)) === cidr);
+
+
     
 
     
