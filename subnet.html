@@ -177,6 +177,24 @@
                 const lastHostIP = ipArray.slice(0, 3).concat([254]).join('.');
 
 
+                const resultHTML = `
+                    <h4>Network Details</h4>
+                    <table class="table">
+                        <tr><th>Network ID</th><td>${networkID}</td></tr>
+                        <tr><th>Subnet Mask</th><td>${subnetMask}</td></tr>
+                        <tr><th>Broadcast Address</th><td>${broadcastID}</td></tr>
+                        <tr><th>Number of Usable Hosts</th><td>${totalHosts}</td></tr>
+                        <tr><th>IP Range</th><td>${firstHostIP} - ${lastHostIP}</td></tr>
+                    </table>
+                `;
+                document.getElementById('result').innerHTML = resultHTML;
+            } else {
+                document.getElementById('result').innerHTML = '<div class="error-message">Invalid CIDR value</div>';
+            }
+
+        }
+
+
     
 
     
