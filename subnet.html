@@ -166,6 +166,16 @@
             const cidr = parseInt(document.getElementById('cidr').value);
             const subnetInfo = subnetData.find(item => parseInt(item.CIDR.slice(1)) === cidr);
 
+            if (subnetInfo) {
+                const subnetMask = subnetInfo.subnet_mask;
+                const totalHosts = Math.pow(2, 32 - cidr) - 2;
+                const ipArray = ip.split('.').map(Number);
+                const networkID = ipArray.slice(0, 3).concat([0]).join('.');
+                const broadcastID = ipArray.slice(0, 3).concat([255]).join('.');
+
+                const firstHostIP = ipArray.slice(0, 3).concat([1]).join('.');
+                const lastHostIP = ipArray.slice(0, 3).concat([254]).join('.');
+
 
     
 
