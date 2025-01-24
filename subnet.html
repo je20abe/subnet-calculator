@@ -24,13 +24,19 @@
         
             <li class="nav-item">
                 <a class="nav-link" href="./Eigrp.html">EIGRP Calculator</a>
-            </li>
+            </li>           
+
             <li class="nav-item">
                 <a class="nav-link" href="./host_mask_calc.html">Mask & Host Calc</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="./number_converter.html">Number Converter</a>
             </li>
+
+            <li class="nav-item logout-link">
+                <button class="logout-btn" onclick="logout()">Log Out</button>
+            </li>
+             
         </ul>
         
         <!-- Main Form -->
@@ -84,6 +90,24 @@
             background-color: #007bff;
             border: none;
             font-weight: 600;
+        }
+
+        .logout-link {
+
+            margin-left: auto; /* Pushes the item to the right */
+        }
+
+        .logout-btn {
+             background-color: #007bff; /* Blue background */
+             color: white; /* White text */
+             border: none; /* Remove border */
+             padding: 10px 20px; /* Add padding for a better look */
+             border-radius: 5px; /* Rounded corners */
+             cursor: pointer; /* Pointer cursor on hover */
+        }   
+
+        .logout-btn:hover {
+             background-color: #0056b3; /* Darker blue on hover */
         }
 
         .btn-primary:hover {
