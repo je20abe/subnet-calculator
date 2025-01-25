@@ -37,22 +37,48 @@
         </ul>
 
         <!-- Main Form -->
-        <h1>Subnet Calculator</h1>
-        <div class="card">
-            <h3>Enter IP Address and CIDR</h3>
-            <form id="subnetForm">
-                <div class="mb-3">
-                    <label for="ipAddress" class="form-label">IP Address</label>
-                    <input type="text" class="form-control" id="ipAddress" placeholder="Enter IP Address" required>
+         <!-- Tab Content -->
+         <div class="tab-content">
+            <!-- EIGRP Tab -->
+            <div class="tab-pane fade show active" id="eigrp">
+                <h1>EIGRP Classic and Wide Metric Calculator</h1>
+                <div class="card">
+                    <form id="eigrp-form">
+                        <div class="mb-3">
+                            <label for="bandwidth" class="form-label">Enter Bandwidth (in Kbps)</label>
+                            <input type="number" class="form-control" id="bandwidth" placeholder="Enter bandwidth in Kbps" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="delay" class="form-label">Enter Delay (in microseconds)</label>
+                            <input type="number" class="form-control" id="delay" placeholder="Enter delay in microseconds" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="k1" class="form-label">Enter K1 (Bandwidth Weight)</label>
+                            <input type="number" class="form-control" id="k1" placeholder="Enter K1 value (usually 1)" value="1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="k3" class="form-label">Enter K3 (Delay Weight)</label>
+                            <input type="number" class="form-control" id="k3" placeholder="Enter K3 value (usually 1)" value="1" required>
+                        </div>
+                        <button type="button" class="btn btn-primary w-100" onclick="calculateEigrpMetric()">Calculate EIGRP Metric</button>
+                    </form>
+                    <p id="error-msg" class="error-message mt-3"></p>
                 </div>
-                <div class="mb-3">
-                    <label for="cidr" class="form-label">CIDR</label>
-                    <input type="number" class="form-control" id="cidr" placeholder="Enter CIDR Value (e.g., 24)" required>
+
+                <!-- Output Table -->
+                <div id="output" class="mt-4">
+                    <h4>Calculated EIGRP Metric Results</h4>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Classic Metric</th>
+                                <th>Wide Metric</th>
+                            </tr>
+                        </thead>
+                        <tbody id="output-table-body"></tbody>
+                    </table>
                 </div>
-                <button type="submit" class="btn btn-primary">Calculate</button>
-            </form>
-            <div id="result" class="mt-4"></div>
-        </div>
+            </div>
 
         <footer>
             Made by Justice Eshun
