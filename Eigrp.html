@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subnet Calculator</title>
+    <title> Eigrp Calculator</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -85,7 +85,7 @@
         </footer>
     </div>
 
-    <!-- Custom CSS -->
+    
    
     <!-- Custom CSS -->
     <style>
@@ -192,6 +192,48 @@
             localStorage.removeItem('welcomeMessage'); // Clear the message to avoid repeated alerts
         }
     });
+
+        //Function to calculate EIGRP metrics
+        function calculateEigrpMetric() {
+            const bandwidth = parseFloat(document.getElementById("bandwidth").value);
+            const delay = parseFloat(document.getElementById("delay").value);
+            const k1 = parseFloat(document.getElementById("k1").value);
+            const k3 = parseFloat(document.getElementById("k3").value);
+            const errorMsg = document.getElementById("error-msg");
+            const outputTable = document.getElementById("output-table-body");
+
+            errorMsg.textContent = "";
+            outputTable.innerHTML = "";
+
+              // Validation check
+              if (isNaN(bandwidth) || isNaN(delay) || isNaN(k1) || isNaN(k3) || bandwidth <= 0 || delay <= 0 || k1 <= 0 || k3 <= 0) {
+                errorMsg.textContent = "Please enter valid values for all fields.";
+                return;
+            }
+
+            // Classic Metric Calculation
+            const classicMetric = (10 ** 7) / (bandwidth + (delay/10));
+
+            // wide Metric Calculation
+            const wideMetric = 256 * ((k1 * bandwidth) + (k3 * delay));
+
+             // Output results
+             const row = `
+                <tr>
+                    <td>${classicMetric.toFixed(2)}</td>
+                    <td>${wideMetric.toFixed(2)}</td>
+                </tr>
+            `;
+            outputTable.innerHTML = row;
+
+        }
+    </script> 
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
 
     
 
