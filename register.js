@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
 //import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -36,14 +36,14 @@ submit.addEventListener("click", function (event) {
         .then((userCredential) => {
             // Account creation successful
             const user = userCredential.user; // Access the created user object
-            alert("Creating Account"); // Notify user of successful account creation
+            alert("Verification email sent. Please check your inbox.");
             window.location.href = "index.html"; // Redirect to the home page
 
             // Send a verification email
             sendEmailVerification(user)
                 .then(() => {
                     // Email verification sent successfully
-                    alert("Verification email sent. Please check your inbox.");
+                    //alert("Verification email sent. Please check your inbox.");
                     window.location.href = "index.html"; // Redirect to the login page or home page
                 })
                 .catch((error) => {

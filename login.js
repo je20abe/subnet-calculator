@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, signOut } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -18,7 +18,8 @@ const auth = getAuth(app);
 document.addEventListener('DOMContentLoaded', () => {
     // Forgot Password functionality
     document.getElementById('forgot-password').addEventListener('click', () => {
-        sendPasswordResetEmail(auth, document.getElementById('email').value)
+        const email = document.getElementById('email').value;
+        sendPasswordResetEmail(auth, email)
             .then(() => {
                 alert("A password reset link has been sent to your email.");
             })
@@ -38,11 +39,28 @@ document.addEventListener('DOMContentLoaded', () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                localStorage.setItem('welcomeMessage', `Welcome, ${user.email}!`);
-                window.location.href = "subnet.html";
+
+                // Check if the email is verified
+                if (user.emailVerified) {
+                    // Email is verified, grant access
+                    localStorage.setItem('welcomeMessage', `Welcome, ${user.email}!`);
+                    window.location.href = "subnet.html"; // Redirect to the desired page
+                } else {
+                    // Email is not verified, log the user out
+                    alert("Your email is not verified. Please verify your email before logging in.");
+                    signOut(auth)
+                        .then(() => {
+                            console.log("User signed out due to unverified email.");
+                        })
+                        .catch((error) => {
+                            console.error("Error signing out:", error.message);
+                        });
+                }
             })
             .catch((error) => {
-                alert(error.message);
+                // Handle login errors
+                console.error(error.code, error.message);
+                alert(`Login failed: ${error.message}`);
             });
     });
 });
