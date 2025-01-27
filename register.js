@@ -38,6 +38,18 @@ submit.addEventListener("click", function (event) {
             const user = userCredential.user; // Access the created user object
             alert("Creating Account"); // Notify user of successful account creation
             window.location.href = "index.html"; // Redirect to the home page
+
+            // Send a verification email
+            sendEmailVerification(user)
+                .then(() => {
+                    // Email verification sent successfully
+                    alert("Verification email sent. Please check your inbox.");
+                    window.location.href = "index.html"; // Redirect to the login page or home page
+                })
+                .catch((error) => {
+                    // Handle errors during email verification
+                    alert("Failed to send verification email: " + error.message);
+                });
         })
         .catch((error) => {
             // Handle errors during account creation
