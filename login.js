@@ -52,15 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // Clear the password field
                     passwordField.value = "";
-
-                    // Sign out the unverified user
-                    signOut(auth)
-                        .then(() => {
-                            console.log("User signed out due to unverified email.");
-                        })
-                        .catch((error) => {
-                            console.error("Error signing out:", error.message);
-                        });
                 }
             })
             .catch((error) => {
