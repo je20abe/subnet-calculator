@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     submit.addEventListener("click", (event) => {
         event.preventDefault();
         const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        const passwordField = document.getElementById('password');
+        const password = passwordField.value;
 
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -46,8 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem('welcomeMessage', `Welcome, ${user.email}!`);
                     window.location.href = "subnet.html"; // Redirect to the desired page
                 } else {
-                    // Email is not verified, log the user out
+                    // Email is not verified
                     alert("Your email is not verified. Please verify your email before logging in.");
+
+                    // Clear the password field
+                    passwordField.value = "";
+
+                    // Sign out the unverified user
                     signOut(auth)
                         .then(() => {
                             console.log("User signed out due to unverified email.");
