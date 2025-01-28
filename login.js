@@ -42,22 +42,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 const user = userCredential.user;
 
                 // Check if the email is verified
-                if (user.emailVerified) {
+                //if (user.emailVerified) {
                     // Email is verified, grant access
-                    localStorage.setItem('welcomeMessage', `Welcome, ${user.email}!`);
-                    window.location.href = "subnet.html"; // Redirect to the desired page
-                } else {
+                   localStorage.setItem('welcomeMessage', `Welcome, ${user.email}!`);
+                   window.location.href = "subnet.html"; // Redirect to the desired page
+               // } else {
                     // Email is not verified
-                    alert("Your email is not verified. Please verify your email before logging in.");
+                   // alert("Your email is not verified. Please verify your email before logging in.");
 
                     // Clear the password field
                     passwordField.value = "";
-                }
-            })
+                    
+                })
+            
             .catch((error) => {
-                // Handle login errors
-                console.error(error.code, error.message);
-                alert(`Login failed: ${error.message}`);
+                console.error("Error Code:", error.code); // Log the error code for debugging
+            
+                const messages = {
+                   // "auth/user-not-found": "Account not found.",
+                    //"auth/wrong-password": "Wrong password.",
+                   // "auth/invalid-email": "Invalid email format.",
+                   // "auth/too-many-requests": "Too many attempts. Try later.",
+                    "auth/invalid-credential": "Wrong email or password.",
+                };
+            
+                // Use the error code to fetch a message, or fallback to the generic message
+                const errorMessage = messages[error.code] || "Login failed. Please try again.";
+                alert(errorMessage);
             });
+                                            
     });
 });
