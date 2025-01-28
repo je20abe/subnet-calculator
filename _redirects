@@ -1,2 +1,6 @@
-/ /index.html 200
-/subnet /index.html 302! # Redirect all `/subnet` visits to the login page
+ /subnet /index.html 200
+/*       /index.html 200
+
+
+
+
