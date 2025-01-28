@@ -32,6 +32,7 @@ submit.addEventListener("click", function (event) {
         .then((userCredential) => {
             // Account creation successful
             const user = userCredential.user; // Access the created user object
+            window.location.href = "index.html";
 
             // Send a verification email
            // sendEmailVerification(user)
@@ -39,7 +40,7 @@ submit.addEventListener("click", function (event) {
                     // Email verification sent successfully
                //     alert("Verification email sent. Please check your inbox.");
                     // Redirect to the login page or home page after successful email sending
-                   window.location.href = "index.html";
+                  // window.location.href = "index.html";
                // })
                // .catch((error) => {
                     // Handle errors during email verification

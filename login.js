@@ -40,18 +40,19 @@ document.addEventListener('DOMContentLoaded', () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                localStorage.setItem('welcomeMessage', `Welcome, ${user.email}!`);
+                   window.location.href = "subnet.html"; // Redirect to the desired pag
+                   passwordField.value = "";
 
                 // Check if the email is verified
                 //if (user.emailVerified) {
                     // Email is verified, grant access
-                   localStorage.setItem('welcomeMessage', `Welcome, ${user.email}!`);
-                   window.location.href = "subnet.html"; // Redirect to the desired page
                // } else {
                     // Email is not verified
                    // alert("Your email is not verified. Please verify your email before logging in.");
 
                     // Clear the password field
-                    passwordField.value = "";
+                    //passwordField.value = "";
                     
                 })
             
